@@ -1,0 +1,112 @@
+nav {
+	width: 10%;
+	height: 100vh;
+	float: left;
+	background: linear-gradient(0deg,
+			#6F4E45 16.64%,
+			#B1A599 28.97%,
+			#A64E2D 35.18%,
+			#AF9D95 42.83%,
+			#BE9961 47.52%,
+			#B4A598 56.88%,
+			#3B6B24 63.67%,
+			#F1F2E4 71.89%,
+			#47779D 79.83%);
+}
+
+nav img {
+	display: block;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 90%;
+}
+
+.button_container {
+	margin: 20px 2.5% 2.5%;
+	display: block;
+	width: 95%;
+	height: 5%;
+}
+
+/* стили для кнопок */
+.button_panel {
+	width: 95%;
+	height: 95%;
+	margin-top: 10%;
+	border-radius: 16px;
+	background: #A2C8D9;
+	box-shadow: 3px 5px 4.4px 0px rgba(0, 0, 0, 0.25);
+	/* стили для текста кнопок */
+	color: #8E3837;
+	font-family: Montserrat, sans-serif;
+	text-align: center;
+	font-size: 1vw;
+	letter-spacing: 1px;
+	overflow: hidden;
+}
+
+main {
+	float: left;
+	margin-top: 10vh;
+	text-align: center;
+	width: 85%;
+}
+
+.features {
+	display: block;
+	margin: 20px auto auto;
+	width: 60%;
+    background: #D9D9D9;
+    border-radius: 46.209px;
+    mix-blend-mode: hard-light;
+}
+
+.textAreas {
+	padding-top: 20px;
+	display: block;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+    width: 95%;
+    text-align: center;
+}
+
+.textAreas form {
+    margin-bottom: 15%; /* Пространство между формой и кнопкой */
+}
+.css_input {
+	width: 90%;
+	height: 7vh;
+	border-radius: 24.32px;
+	background: #366707;
+	color: #FFF;
+	text-align: center;
+	font-family: Montserrat;
+	font-size: 27.968px;
+	font-style: normal;
+	font-weight: 500;
+	letter-spacing: 1.678px;
+}
+.css_input::placeholder {
+	color: #FFF;
+	font-family: Montserrat;
+	font-style: normal;
+	letter-spacing: 1.678px;
+}
+.button_register {
+	width: 369.669px;
+	height: 58.369px;
+	border-radius: 24.32px;
+	background: #C44D4D;
+    margin-top: auto; /* Расположение кнопки внизу блока */
+	margin-bottom: 30px;
+	color: #FFF;
+	text-align: center;
+	font-family: Montserrat;
+	font-size: 27.968px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 146.667%; /* 41.02px */
+	letter-spacing: 1.678px;
+}
