@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-<ul>
-    <li><a href="{% url 'home' %}">Главная страница</a></li>
-    {% for m in menu %}
-    {% if not forloop.last%}<li>{% else %}<li class="last">{% endif %}
-        <a href="{% url m.url_name %}">{{ m.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+<nav>
+    <div class="nav_logo">
+        <img src="{% static 'main/img/Logo.jpg' %}" alt="Logo">
+    </div>
+    <div class="button_container">
+        <button class="button_panel">Главная</button>
+        <button class="button_panel">Регистрация</button>
+        <button class="button_panel">Вход</button>
+    </div>
+</nav>
+{% endblock nav %}
+
