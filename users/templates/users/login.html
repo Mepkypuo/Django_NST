@@ -12,3 +12,14 @@
     </div>
 </nav>
 {% endblock nav %}
+
+{% block content %}
+<div class="features">
+    <form method="post">
+        <h1>Авторизация</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit" class="button_register">Войти</button></p>
+    </form>
+</div>
+{% endblock %}
