@@ -18,7 +18,20 @@
 <body>
 
 {% block nav%}
-
+<nav>
+    <div class="nav_logo">
+        <img src="{% static 'main/img/Logo.jpg' %}" alt="Logo">
+    </div>
+    <ul>
+        <li><a href="{% url 'home' %}">Главная</a></li>
+		<li><a href="">Регистрация</a></li>
+		{% if user.is_authenticated %}
+		<li>{{user.username}} | <a href="{% url 'users:logout' %}">Выйти</a></li>
+		{% else %}
+		<li><a href="{% url 'users:login' %}">Войти</a> | <a href="">Регистрация</a></li>
+		{% endif %}
+    </ul>
+</nav>
 {% endblock %}
 	<main>
 {% block content %}
