@@ -1,43 +1,41 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}
+
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
-	<style>
-		body {background: url("{% static 'main/img/background.jpg' %}");
-		margin: 0;
-		height: 100vh;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat}
-	</style>
-	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link type="text/css" href="{% static 'main/css/style.css' %}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">	<title>{{title}}</title>
 </head>
 <body>
-
-{% block nav%}
-<nav>
-    <div class="nav_logo">
-        <img src="{% static 'main/img/Logo.jpg' %}" alt="Logo">
-    </div>
-    <ul>
-        <li><a href="{% url 'home' %}">Главная</a></li>
-		<li><a href="">Регистрация</a></li>
-		{% if user.is_authenticated %}
-		<li>{{user.username}} | <a href="{% url 'users:logout' %}">Выйти</a></li>
-		{% else %}
-		<li><a href="{% url 'users:login' %}">Войти</a> | <a href="">Регистрация</a></li>
-		{% endif %}
-    </ul>
-</nav>
+{% block nav %}
+  <header>
+		<div class="wrapper">
+			<nav>
+				<ul class="nav">
+					<div class="logo"><span class="logo-img"></span><span>NSTourney</span></div>
+					<div class="first">
+						<li><a href="#">Главная</a></li>
+				  	<li><a href="#">О Турнире</a></li>
+				  	<li><a href="#">Контакты</a></li>
+					</div>
+					<div class="last">
+						<li><a href="#">Вход</a></li>
+						<li><a href="#">Регистрация</a></li>
+					</div>
+				</ul>
+			</nav>
+		</div>
+	</header>
 {% endblock %}
-	<main>
+<div class="wrapper">
+	<div class="container">
 {% block content %}
-
 {% endblock %}
-	</main>
+	</div>
+</div>
 </body>
 </html>
 

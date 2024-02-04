@@ -1,64 +1,85 @@
-nav {
-	width: 10%;
-	height: 100vh;
-	float: left;
-	background: linear-gradient(0deg,
-			#6F4E45 16.64%,
-			#B1A599 28.97%,
-			#A64E2D 35.18%,
-			#AF9D95 42.83%,
-			#BE9961 47.52%,
-			#B4A598 56.88%,
-			#3B6B24 63.67%,
-			#F1F2E4 71.89%,
-			#47779D 79.83%);
+body {
+    background: url(../img/background.jpg);
+    height: 100vh;
+    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
 }
-
-nav img {
+.wrapper {
+	max-width: 1440px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+	justify-content:center;
+	align-items: center;
+}
+.nav {
+	display: flex;
+	justify-content: space-between;
+	list-style-type: none;
+	padding-left: 0;
+	background-color: #52c089;
+	margin-top:0;
+	padding:7px;
+	border-bottom-left-radius:15px;
+	border-bottom-right-radius:15px;
+	align-items: center;
+	font-size: 25px;
+    font-weight: 700;
+    white-space:nowrap;
+}
+.first, .last {
+	display: flex;
+}
+.first>li, .last>li {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.first>li>a, .last>li>a {
+	text-decoration: none;
+	color: #333333;
+	transition: 0.7s;
+}
+.first>li>a:hover, .last>li>a:hover {
+color:#fff;
+}
+.logo {
+	color: #333333;
+	font-size: 20px;
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+}
+.logo-img {
 	display: block;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 90%;
+	width: 80px;
+	height: 45px;
+	background-image: url(../img/logo.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-right: 4px;
 }
 
-.button_container {
-	margin: 20px 2.5% 2.5%;
-	display: block;
-	width: 95%;
-	height: 5%;
+.container {
+    display:flex;
+	justify-content:center;
+	align-items: center;
+	margin-top: 85px;
 }
 
-/* стили для кнопок */
-.button_panel {
-	width: 95%;
-	height: 95%;
-	margin-top: 10%;
-	border-radius: 16px;
-	background: #A2C8D9;
-	box-shadow: 3px 5px 4.4px 0px rgba(0, 0, 0, 0.25);
-	/* стили для текста кнопок */
-	color: #8E3837;
-	font-family: Montserrat, sans-serif;
-	text-align: center;
-	font-size: 1vw;
-	letter-spacing: 1px;
-	overflow: hidden;
-}
 
-main {
-	float: left;
-	margin-top: 10vh;
-	text-align: center;
-	width: 85%;
-}
 
 .features {
-	display: block;
-	margin: 20px auto auto;
-	width: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items: center;
+	padding: 15px;
+	border-radius: 15px;
+	max-width: 800px;
     background: #D9D9D9;
-    border-radius: 46.209px;
     mix-blend-mode: hard-light;
 }
 
