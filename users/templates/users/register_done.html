@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="features">
+    <h1>Добро пожаловать!</h1>
+
+    <p>Вы успешно заригистрировались на сайте! Для входа в систему необходимо авторизоваться по
+        <a href="{% url 'users:login' %}">ссылке</a>
+    </p>
+</div>
+{% endblock %}
