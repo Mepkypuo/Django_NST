@@ -66,7 +66,7 @@ color:#fff;
     display:flex;
 	justify-content:center;
 	align-items: center;
-	margin-top: 85px;
+	margin-top: 150px;
 }
 
 
@@ -83,48 +83,34 @@ color:#fff;
     mix-blend-mode: hard-light;
 }
 
-.textAreas {
-	padding-top: 20px;
-	display: block;
-	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
-    width: 95%;
-    text-align: center;
-}
-
-.textAreas form {
-    margin-bottom: 15%; /* Пространство между формой и кнопкой */
+.form__features {
+    display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .css_input {
-	width: 90%;
-	height: 7vh;
+    padding:5px 15px;
 	border-radius: 24.32px;
 	background: #366707;
 	color: #FFF;
 	text-align: center;
-	font-family: Montserrat;
-	font-size: 27.968px;
-	font-style: normal;
+	font-size: 24px;
 	font-weight: 500;
 	letter-spacing: 1.678px;
 }
 .css_input::placeholder {
 	color: #FFF;
-	font-family: Montserrat;
-	font-style: normal;
 	letter-spacing: 1.678px;
 }
 .button_register {
-	width: 369.669px;
-	height: 58.369px;
+    padding: 3px 15px;
+    max-height: 50px;
 	border-radius: 24.32px;
 	background: #C44D4D;
     margin-top: auto; /* Расположение кнопки внизу блока */
-	margin-bottom: 30px;
+    margin-bottom:0;
 	color: #FFF;
 	text-align: center;
-	font-family: Montserrat;
 	font-size: 27.968px;
 	font-style: normal;
 	font-weight: 500;
