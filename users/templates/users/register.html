@@ -3,12 +3,15 @@
 
 {% block content %}
 <div class="features">
-    <form method="post">
+    <form class="form__features" method="post">
         <h1>Регистрация</h1>
-    {% csrf_token %}
         <input type="hidden" name="next" value="{{ next }}" />
-    {{ form.as_p }}
-    <p><button type="submit" class="button_register">Регистрация</button></p>
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for f in form %}
+        <p>{{ f }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+        <p><button type="submit" class="button_register">Регистрация</button></p>
     </form>
 </div>
 {% endblock %}

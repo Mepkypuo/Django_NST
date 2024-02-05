@@ -3,23 +3,14 @@
 {% block content %}
 <div class="features">
     <h1>Профиль</h1>
-
-    <form method="post">
+    <form class="form__features" method="post">
         {% csrf_token %}
         <div class="form-error">{{ form.non_fields_errors }}</div>
         {% for f in form %}
         <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}</label>{{ f }}</p>
         <div class="form-error">{{ f.errors }}</div>
         {% endfor %}
-
         <p><button class="button_register" type="submit">Сохранить</button> </p>
-
-
     </form>
-
-
-
-
-
 </div>
-
+{% endblock %}

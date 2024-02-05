@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block content %}
+<div class="features">
+{% if user.is_authenticated %}
+<h1>Hello, {{user.username}}!!!</h1>
+{% else %}
+<h1>Bye!!</h1>
+{% endif %}
+</div>
 
+
+{% endblock %}

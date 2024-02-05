@@ -17,13 +17,18 @@
 				<ul class="nav">
 					<div class="logo"><span class="logo-img"></span><span>NSTourney</span></div>
 					<div class="first">
-						<li><a href="#">Главная</a></li>
-				  	<li><a href="#">О Турнире</a></li>
-				  	<li><a href="#">Контакты</a></li>
+						<li><a href="{% url 'home' %}">Главная</a></li>
+				  		<li><a href="#">О Турнире</a></li>
+				  		<li><a href="#">Контакты</a></li>
 					</div>
 					<div class="last">
-						<li><a href="#">Вход</a></li>
-						<li><a href="#">Регистрация</a></li>
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'users:profile' %}">{{user.username}}</a></li>
+						<li><a href="{% url 'users:logout' %}">Выйти</a></li>
+						{% else%}
+						<li><a href="{% url 'users:login' %}">Вход</a></li>
+						<li><a href="{% url 'users:register' %}">Регистрация</a></li>
+						{% endif %}
 					</div>
 				</ul>
 			</nav>
