@@ -4,6 +4,7 @@
 {% block content %}
 <div class="features">
     <form class="form__features" method="post">
+        {% csrf_token %}
         <h1>Регистрация</h1>
         <input type="hidden" name="next" value="{{ next }}" />
         <div class="form-error">{{ form.non_field_errors }}</div>
