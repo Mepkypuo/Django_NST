@@ -33,16 +33,16 @@ body {
 .first, .last {
 	display: flex;
 }
-.first>li, .last>li {
+.nav li {
 	margin-left: 10px;
 	margin-right: 10px;
 }
-.first>li>a, .last>li>a {
+.nav a {
 	text-decoration: none;
 	color: #333333;
 	transition: 0.7s;
 }
-.first>li>a:hover, .last>li>a:hover {
+.nav a:hover {
 color:#fff;
 }
 .logo {
