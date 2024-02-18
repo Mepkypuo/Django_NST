@@ -76,23 +76,34 @@ color:#fff;
 	padding: 15px;
 	border-radius: 15px;
 	max-width: 800px;
-    background: #D9D9D9;
-    mix-blend-mode: hard-light;
+    background: rgba(255, 255, 255, 0.65);
 }
 .form__features {
     display: flex;
 	flex-direction: column;
 	align-items: center;
 }
+.features a {
+	text-decoration: none;
+	font-size: 16px;
+	color: #333333;
+	transition: 0.4s;
+}
+.features a:hover {
+	font-size: 18px;
+}
 .css_input {
     padding:5px 15px;
 	border-radius: 24.32px;
-	background: #366707;
+	background: rgba(36, 67, 07, 0.85);
 	color: #FFF;
 	text-align: center;
 	font-size: 24px;
 	font-weight: 500;
 	letter-spacing: 1.678px;
+}
+.css_input:focus {
+	background: rgba(36, 67, 07, 1);
 }
 .css_input::placeholder {
 	color: #FFF;
@@ -102,7 +113,7 @@ color:#fff;
     padding: 3px 15px;
     max-height: 50px;
 	border-radius: 24.32px;
-	background: #C44D4D;
+    background: rgba(196, 77, 77, 0.8);
     margin-top: auto; /* Расположение кнопки внизу блока */
     margin-bottom:0;
 	color: #FFF;
@@ -112,4 +123,7 @@ color:#fff;
 	font-weight: 500;
 	line-height: 146.667%; /* 41.02px */
 	letter-spacing: 1.678px;
+}
+.button_register:hover {
+    background: rgba(196, 77, 77, 1);
 }

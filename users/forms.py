@@ -23,6 +23,10 @@ class RegisterUserForm(UserCreationForm):
         label="",
         widget=forms.TextInput(attrs={'class': 'css_input', 'placeholder': 'E-mail'})
     )
+    training_organization = forms.CharField(
+        label="",
+        widget=forms.TextInput(attrs={'class': 'css_input', 'placeholder': 'Название ОО'})
+    )
     password1 = forms.CharField(
         label="",
         widget=forms.PasswordInput(attrs={'class': 'css_input', 'placeholder': 'Пароль'})
@@ -34,7 +38,7 @@ class RegisterUserForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'training_organization', 'password1', 'password2']
 
     def clean_email(self):
         email = self.cleaned_data['email']
@@ -44,19 +48,21 @@ class RegisterUserForm(UserCreationForm):
 
 
 class ProfileUserForm(forms.ModelForm):
-    username = forms.CharField(disabled=True, label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    email = forms.CharField(disabled=True, label='E-mail', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    username = forms.CharField(disabled=True, label='', widget=forms.TextInput(attrs={'class': 'css_input'}))
+    email = forms.CharField(disabled=True, label='', widget=forms.TextInput(attrs={'class': 'css_input'}))
 
     class Meta:
         model = get_user_model()
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['username', 'email', 'training_organization', 'first_name', 'last_name']
         labels = {
-            'first_name': 'Имя',
-            'last_name': 'Фамилия',
+            'training_organization': '',
+            'first_name': '',
+            'last_name': '',
         }
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-input'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-input'}),
+            'training_organization': forms.TextInput(attrs={'class': 'css_input', 'placeholder': 'Название ОО'}),
+            'first_name': forms.TextInput(attrs={'class': 'css_input', 'placeholder': 'Имя'}),
+            'last_name': forms.TextInput(attrs={'class': 'css_input', 'placeholder': 'Фамилия'}),
         }
 
 
