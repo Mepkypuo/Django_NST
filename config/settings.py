@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Мои приложения
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
+    'tournament.apps.TournamentConfig',
 ]
 
 MIDDLEWARE = [
