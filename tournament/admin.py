@@ -13,7 +13,7 @@ class TournamentAdmin(admin.ModelAdmin):
 
 @admin.register(Participant)
 class ParticipantAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'tournament')
+    list_display = ('id', 'user', 'score', 'tournament')
     list_display_links = ('id', 'user')
     list_editable = ('tournament',)
 
