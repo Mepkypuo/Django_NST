@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="features">
+  <form method="post" action="">
+    {% csrf_token %}
+    <p>Вопрос:</p>
+    <input type="text" name="question" value="{{ question.question_text }}" readonly>
+    {% for question in questions %}
+      <button type="submit" name="question_id" value="{{ question.id }}">{{ question.id }}</button>
+    {% endfor %}
+
+
+
+  </form>
+</div>
+{% endblock %}

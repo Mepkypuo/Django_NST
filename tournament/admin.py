@@ -16,18 +16,21 @@ class ParticipantAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'score', 'tournament')
     list_display_links = ('id', 'user')
     list_editable = ('tournament',)
+    list_filter = ['tournament']
 
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ('id', 'question_text', "correct_answer", 'tournament')
     list_display_links = ('id', 'question_text')
+    list_filter = ['tournament']
     ordering = ['tournament', '-id']
 
 
 @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):
     list_display = ('id', 'participant', 'question_id', 'current_answer', 'answer_text', 'is_correct')
+    list_filter = ['participant__tournament']
 
     def question_id(self, obj):
         if obj.question:
