@@ -24,7 +24,7 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ('id', 'question_text', "correct_answer", 'tournament')
     list_display_links = ('id', 'question_text')
     list_filter = ['tournament']
-    ordering = ['tournament', '-id']
+    ordering = ['tournament', 'id']
 
 
 @admin.register(Answer)

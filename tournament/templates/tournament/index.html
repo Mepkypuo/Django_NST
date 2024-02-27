@@ -3,16 +3,18 @@
 
 {% block content %}
 <div class="features">
-  <form method="post" action="">
-    {% csrf_token %}
-    <p>Вопрос:</p>
-    <input type="text" name="question" value="{{ question.question_text }}" readonly>
-    {% for question in questions %}
-      <button type="submit" name="question_id" value="{{ question.id }}">{{ question.id }}</button>
-    {% endfor %}
-
-
-
-  </form>
+    <div>
+        {% if selected_question %}
+            <h2>{{ selected_question.question_text }}</h2>
+        {% endif %}
+    </div>
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for question in questions %}
+            {% if question.tournament.name == tournament %}
+                <input type="submit" name="question_id" value="{{ question.id }}">
+            {% endif %}
+        {% endfor %}
+    </form>
 </div>
 {% endblock %}
