@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseForbidden
 from django.utils import timezone
 
+from .forms import AnswerForm
 from .models import Tournament, Participant, Question
 
 
@@ -22,40 +23,35 @@ def index(request,tournament_id):
     if not participant:
         return HttpResponseForbidden("Вы не участвуете в данном турнире.")
 
-    tournament_name = tournament.name
-    questions = Question.objects.filter(tournament__name=tournament_name).order_by('id')
-    selected_question = "Выберите любой вопрос"
+    # Получение списка вопросов для турнира
+    questions = Question.objects.filter(tournament=tournament)
 
+    # Обработка формы
+    selected_question = None
     if request.method == 'POST':
         question_id = request.POST.get('question_id')
-        if question_id:
-            selected_question = Question.objects.get(id=question_id)
-
+        selected_question = get_object_or_404(Question, pk=question_id)
 
     data = {
         'title': "Турнир",
         'tournament': tournament,
-        'tournament_name': tournament_name,
+        'participant': participant,
+        'questions': questions,
         'selected_question': selected_question,
-        'participant': participant
     }
 
     return render(request, 'tournament/index.html', context=data)
 
 
-
-    # tournament_name = "тестовый турнир"
-    # questions = Question.objects.filter(tournament__name=tournament_name).order_by('id')
-    # selected_question = "Выберите любой вопрос"
-    #
-    # if request.method == 'POST':
-    #     question_id = request.POST.get('question_id')
-    #     if question_id:
-    #         selected_question = Question.objects.get(id=question_id)
-    #
-    # data = {
-    #     'title': "Турнир",
-    #     'questions': questions,
-    #     'selected_question': selected_question,
-    #     'tournament': tournament_name
-    # }
+def submit_answer(request):
+    if request.method == 'POST':
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            # Сохраните ответ в базе данных
+            answer = form.save(commit=False)
+            answer.participant = request.user.participant  # Получение участника из текущего пользователя
+            answer.save()
+            return redirect('tournament')  # Перенаправьте куда-то после отправки ответа
+    else:
+        form = AnswerForm()
+    return render(request, 'index.html', {'form': form})
