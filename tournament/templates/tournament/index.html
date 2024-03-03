@@ -3,28 +3,29 @@
 
 {% block content %}
 <div class="features">
-    <div>
-        {% if selected_question %}
-            <h2>{{ selected_question.question_text }}</h2>
-        {% else %}
-            <h2> Выберите номер вопроса из списка</h2>
+<div>
+    {% if selected_question %}
+        <h2>{{ selected_question.question_text }}</h2>
+    {% else %}
+        <h2>Выберите номер вопроса из списка</h2>
+    {% endif %}
+</div>
+<form method="post" action="">
+    {% csrf_token %}
+    {% for question in questions %}
+        {% if question.tournament.name == tournament.name %}
+            <button type="submit" name="question_id" value="{{ question.id }}">{{ forloop.counter }}</button>
         {% endif %}
-    </div>
-    <form method="post" action="">
-        {% csrf_token %}
-        {% for question in questions %}
-            {% if question.tournament.name == tournament.name %}
-                <button type="submit" name="question_id" value="{{ question.id }}">{{ forloop.counter }}</button>
-            {% endif %}
-        {% endfor %}
-    </form>
-<!--    <form method="post" >-->
-<!--    {% csrf_token %}-->
-<!--    <label for="answer_text">Ответ:</label>-->
-<!--    <input type="text" id="answer_text" name="answer_text">-->
-<!--    <input type="hidden" name="question_id" value="{{ selected_question.id }}">-->
-<!--    <input type="submit" value="Отправить ответ">-->
-<!--    </form>-->
+    {% endfor %}
+    <input type="hidden" name="form_type" value="choose_question">
+</form>
+<form method="post">
+    {% csrf_token %}
+    {{ answer_form.as_p }}
+    <input type="hidden" name="question_id" value="{{ selected_question.id }}"> <!-- Добавляем скрытое поле для хранения идентификатора вопроса -->
+    <p><button type="submit" class="button_register">Отправить ответ</button></p>
+    <input type="hidden" name="form_type" value="submit_answer">
+</form>
 </div>
 
 

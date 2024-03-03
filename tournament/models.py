@@ -47,6 +47,11 @@ class Answer(models.Model):
             self.is_correct = True
         else:
             self.is_correct = False
+
+        if not self.pk:  # Если объект не сохранен в базу данных
+            existing_answer = Answer.objects.filter(participant=self.participant, question=self.question).first()
+            if existing_answer:  # Если объект уже существует, обновляем его
+                self.pk = existing_answer.pk  # Подменяем primary key нового объекта на primary key существующего
         super().save(*args, **kwargs)
 
     class Meta:
