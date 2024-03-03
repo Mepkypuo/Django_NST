@@ -74,13 +74,19 @@ class Participant(models.Model):
 
 @receiver(post_save, sender=Answer)
 def update_participant_score(sender, instance, created, **kwargs):
-    if created or instance.is_correct != instance.previous_is_correct:  # Проверяем, был ли создан объект или изменилось ли значение is_correct
+    if created:  # Проверяем, был ли создан объект
         participant = instance.participant
         if instance.is_correct:  # Проверяем, является ли ответ правильным
             participant.score += 1  # Увеличиваем счетчик баллов
-        else:
-            participant.score -= 1  # Уменьшаем счетчик баллов
         participant.save()  # Сохраняем изменения
+    else:  # Объект переписывается
+        if instance.is_correct != instance.previous_is_correct:  # Проверяем, изменилось ли значение is_correct
+            participant = instance.participant
+            if instance.is_correct:  # Проверяем, является ли новый ответ правильным
+                participant.score += 1  # Увеличиваем счетчик баллов
+            else:
+                participant.score -= 1  # Уменьшаем счетчик
+            participant.save()  # Сохраняем изменения
 
 
 @receiver(pre_save, sender=Answer)
