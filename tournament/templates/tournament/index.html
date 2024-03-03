@@ -18,13 +18,13 @@
             {% endif %}
         {% endfor %}
     </form>
-    <form method="post" >
-    {% csrf_token %}
-    <label for="answer_text">Ответ:</label>
-    <input type="text" id="answer_text" name="answer_text">
-    <input type="hidden" name="question_id" value="{{ selected_question.id }}">
-    <input type="submit" value="Отправить ответ">
-</form>
+<!--    <form method="post" >-->
+<!--    {% csrf_token %}-->
+<!--    <label for="answer_text">Ответ:</label>-->
+<!--    <input type="text" id="answer_text" name="answer_text">-->
+<!--    <input type="hidden" name="question_id" value="{{ selected_question.id }}">-->
+<!--    <input type="submit" value="Отправить ответ">-->
+<!--    </form>-->
 </div>
 
 
